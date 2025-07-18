@@ -6,6 +6,7 @@ offline=0
 
 
 WEBSITE=$1
+SLEEP=${2:-5}
 function report(){
     echo "-------- Uptime Report $WEBSITE : --------"
     echo -e "\e[32mOnline count : $online \e[0m"
@@ -21,14 +22,16 @@ if [ "$WEBSITE" != "" ]; then
         status=$?
 
         if [ "$status" -eq 0 ]; then
-            echo "ONLINE ($status)"
+            echo "ONLINE"
             online=$((online + 1))
         else
-            echo "OFFLINE ($status)"
+            echo "OFFLINE (Error code : $status)"
             offline=$((offline + 1))
         fi
         trap report INT
+        sleep $SLEEP
     done
+    
 else 
     echo -e "\e[31mYou must enter a parameter as a website \e[0m "
 fi
