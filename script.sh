@@ -3,14 +3,22 @@ echo "Welcome to uptime controller"
 
 online=0
 offline=0
+start=$(date +%s)
 
 
 WEBSITE=$1
 SLEEP=${2:-5}
 function report(){
+    end=$(date +%s)
+    total_seconds=$((end-start))
+    hours=$(( (total_seconds / 3600) ))
+    minutes=$(( (total_seconds % 3600) / 60 ))
+    seconds=$(( (total_seconds % 60) ))
     echo "-------- Uptime Report $WEBSITE : --------"
     echo -e "\e[32mOnline count : $online \e[0m"
     echo -e "\e[31mOffline count : $offline \e[0m"
+    echo "Total runtime : $hours hours, $minutes minutes, $seconds seconds"
+
     exit 0
 }
 if [ "$WEBSITE" != "" ]; then
@@ -35,3 +43,4 @@ if [ "$WEBSITE" != "" ]; then
 else 
     echo -e "\e[31mYou must enter a parameter as a website \e[0m "
 fi
+
