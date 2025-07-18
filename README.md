@@ -7,6 +7,7 @@ A simple Bash script that monitors website uptime by continuously checking the a
 - **Real-time Monitoring**: Continuously monitors website availability
 - **Customizable Sleep Interval**: User can specify check frequency (default: 5 seconds)
 - **Status Tracking**: Counts online and offline occurrences
+- **Runtime Tracking**: Shows total monitoring duration in hours, minutes, and seconds
 - **Color-coded Output**: Green for online count, red for offline count
 - **Graceful Reporting**: Press Ctrl+C to generate a summary report
 - **Error Code Display**: Shows curl error codes for debugging offline issues
@@ -81,6 +82,7 @@ ONLINE
 -------- Uptime Report https://google.com : --------
 Online count : 4
 Offline count : 1
+Total runtime : 0 hours, 0 minutes, 25 seconds
 ```
 
 ```text
@@ -94,4 +96,5 @@ ONLINE
 -------- Uptime Report https://example.com : --------
 Online count : 3
 Offline count : 0
+Total runtime : 0 hours, 0 minutes, 30 seconds
 ```
