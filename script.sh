@@ -36,10 +36,9 @@ if [ "$WEBSITE" != "" ]; then
             echo -e "\e[31mOFFLINE \e[1m(Error code : $status)\e[0m \e[0m"
             offline=$((offline + 1))
         fi
-        trap report INT
         sleep $SLEEP
     done
-    
+    trap report INT
 else 
     echo -e "\e[31mYou must enter a parameter as a website \e[0m "
 fi
