@@ -22,10 +22,10 @@ if [ "$WEBSITE" != "" ]; then
         status=$?
 
         if [ "$status" -eq 0 ]; then
-            echo "ONLINE"
+            echo -e "\e[32mONLINE \e[0m"
             online=$((online + 1))
         else
-            echo "OFFLINE (Error code : $status)"
+            echo -e "\e[31mOFFLINE \e[1m(Error code : $status)\e[0m \e[0m"
             offline=$((offline + 1))
         fi
         trap report INT
