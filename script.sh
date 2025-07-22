@@ -4,7 +4,7 @@ echo "Welcome to uptime controller"
 online=0
 offline=0
 start=$(date +%s)
-
+trap report INT
 
 WEBSITE=$1
 SLEEP=${2:-5}
@@ -38,7 +38,7 @@ if [ "$WEBSITE" != "" ]; then
         fi
         sleep $SLEEP
     done
-    trap report INT
+    
 else 
     echo -e "\e[31mYou must enter a parameter as a website \e[0m "
 fi
